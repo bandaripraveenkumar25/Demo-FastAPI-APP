@@ -54,7 +54,7 @@ pydantic
 ## 1️⃣ Clone the Repository
 
 ```
-git clone https://github.com/yourusername/agent_app.git
+git clone https://github.com/bandaripraveenkumar25/Demo-FastAPI-APP.git
 cd agent_app
 ```
 
