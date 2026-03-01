@@ -1,28 +1,13 @@
-# Demo-FastAPI Agent Demo App (Python).
+# 🚀 FastAPI Agent Demo App (Python).
 
-
-# 🚀 FastAPI Agent Demo App (Production-Structured)
-
-A minimal but production-structured AI Agent application built with:
+A minimal AI Agent application built with:
 
 - FastAPI
 - Pydantic
-- Modular architecture
-- Planner → Executor pattern
-- Typed tool schemas
+- Modular project structure
+- Simple Planner → Executor pattern
 
-This project demonstrates how to structure an agent system for real-world deployment instead of a simple chatbot loop.
-
----
-
-# 📦 Features
-
-- ✅ Clean modular architecture
-- ✅ Planner → Executor pattern
-- ✅ Typed tool schemas (Pydantic)
-- ✅ Mock CRM tool
-- ✅ FastAPI REST API
-- ✅ Production-friendly folder layout
+This project demonstrates how to structure a basic agent service using Python.
 
 ---
 
@@ -35,7 +20,7 @@ agent_app/
 │   ├── __init__.py
 │   ├── main.py        # FastAPI entrypoint
 │   ├── agent.py       # Planner + Executor logic
-│   ├── tools.py       # Tool implementations (CRM mock)
+│   ├── tools.py       # Tool implementations (Mock CRM)
 │   └── schemas.py     # Pydantic models
 │
 ├── requirements.txt
@@ -48,7 +33,7 @@ agent_app/
 
 - Python 3.9+
 - pip
-- virtualenv (recommended)
+- virtual environment (recommended)
 
 ---
 
@@ -60,13 +45,6 @@ Create a file named `requirements.txt`:
 fastapi
 uvicorn
 pydantic
-```
-
-(Optional if adding LLM support later)
-```
-openai
-langchain
-langgraph
 ```
 
 ---
@@ -110,7 +88,7 @@ pip install -r requirements.txt
 
 ## 4️⃣ Run the Application
 
-Run from project root:
+Run from the project root directory:
 
 ```
 uvicorn app.main:app --reload
@@ -126,7 +104,7 @@ http://127.0.0.1:8000
 
 # 🧪 API Testing
 
-Open Swagger UI:
+Open Swagger UI in your browser:
 
 ```
 http://127.0.0.1:8000/docs
@@ -158,78 +136,10 @@ Example response:
 
 # 🧠 How It Works
 
-### 1️⃣ Planner
-Detects user intent (create contact)
-
-### 2️⃣ Extractor
-Parses structured data from message
-
-### 3️⃣ Tool Executor
-Calls mock CRM tool
-
-### 4️⃣ FastAPI Layer
-Exposes agent via REST endpoint
-
----
-
-# 🏗 Architecture Pattern
-
-```
-Client
-   ↓
-FastAPI
-   ↓
-Agent (Planner → Executor)
-   ↓
-Tool Layer
-   ↓
-External Systems (CRM / ERP / APIs)
-```
-
----
-
-# 🔐 Production Upgrade Ideas
-
-- Replace rule-based planner with LLM function-calling
-- Add LangGraph orchestration
-- Add policy engine (RBAC)
-- Add audit logging
-- Add retry + timeout handling
-- Add evaluation test harness
-- Dockerize for deployment
-- Add CI/CD pipeline
-
----
-
-# 🧑‍💻 Development Notes
-
-Run server in development mode:
-
-```
-uvicorn app.main:app --reload
-```
-
-Production mode:
-
-```
-uvicorn app.main:app --host 0.0.0.0 --port 8000
-```
-
----
-
-# 📌 Why This Structure?
-
-This structure avoids:
-
-❌ Monolithic single-file agents  
-❌ Hardcoded logic in API layer  
-❌ Unstructured tool execution  
-
-Instead it follows:
-
-✔ Separation of concerns  
-✔ Typed tool contracts  
-✔ Extensible orchestration layer  
+1. The user sends a message to the `/agent` endpoint.
+2. The planner detects the intent.
+3. The executor calls the appropriate tool.
+4. The response is returned as structured JSON.
 
 ---
 
@@ -237,14 +147,3 @@ Instead it follows:
 
 MIT License
 
----
-
-# 🙌 Next Steps
-
-You can evolve this into:
-
-- Multi-agent orchestration
-- Enterprise CRM integration
-- Finance approval agent
-- Governance + policy layer
-- Production-grade AgentOps platform
